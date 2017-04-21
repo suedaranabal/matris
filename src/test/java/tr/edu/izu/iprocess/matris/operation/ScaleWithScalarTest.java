@@ -13,8 +13,30 @@ public class ScaleWithScalarTest extends TestCase {
 		matris = new IntegerMatris(3, 3);
 	}
 
-	public void testNothing() {
-		assertEquals(matris.getColumnsCount(), 3);
+	private void assertAllValue(IntegerMatris m, Integer value) {
+		for (int i = 0; i < m.getRowsCount(); i++)
+			for (int j = 0; j < m.getColumnsCount(); j++)
+				assertTrue(value == m.getValue(i, j));
+	}
+
+	public void testSumWithNegativeScalar() {
+		try {
+			matris.sumWithScalar(-1);
+			assertAllValue(matris, -1);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+	}
+
+	public void testSumWithScalar() {
+		try {
+			matris.sumWithScalar(3);
+			assertAllValue(matris, 3);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
 	}
 
 }

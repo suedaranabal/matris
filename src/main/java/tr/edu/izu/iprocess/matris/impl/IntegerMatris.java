@@ -25,7 +25,11 @@ public class IntegerMatris extends AbstractMatris<Integer> {
 	}
 
 	public void sumWithScalar(Integer scalar) throws Exception {
-		throw new NotImplementedMethodException();
+		for (int i = 0; i < getRowsCount(); i++) {
+			for (int j = 0; j < getColumnsCount(); j++) {
+				this.setValue(i, j, this.getValue(i, j) + scalar);
+			}
+		}
 	}
 
 	public void multiplyWithScalar(Integer scalar) throws Exception {
